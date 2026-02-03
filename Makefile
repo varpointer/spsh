@@ -1,5 +1,5 @@
-spsh:
-	echo "As of right now, there is nothing to compile"
+spsh: 
+	gcc src/main.c src/repl.c -o bin/spsh
 
-spsh-test:
+test:
 	echo "As of right now, there is nothing to test."
