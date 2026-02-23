@@ -4,6 +4,6 @@
 #include "../constants.h"
 #include <stdio.h>
 
-void process_input(char input[INPUT_SIZE], FILE *outstream, FILE *errstream);
+void process_input(char *input, FILE *outstream, FILE *errstream);
 
 #endif

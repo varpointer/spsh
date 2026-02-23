@@ -3,4 +3,6 @@
 
 void run_repl();
 
+char *read_line();
+
 #endif
