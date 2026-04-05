@@ -6,6 +6,6 @@
 #define VER_PATCH 0
 
 #define INPUT_BUFFER_FACTOR 256
-#define TOKEN_BUFFER_FACTOR 64
+#define TOKEN_BUFFER_FACTOR 6
 
 #endif

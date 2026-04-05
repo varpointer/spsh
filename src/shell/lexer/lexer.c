@@ -7,14 +7,14 @@ char * get_next_token(char **input, char delimiter){
 	char *token = (char *) malloc( TOKEN_BUFFER_FACTOR );
 	int index = 0;
 	c = **input;
-	int token_size = 1;
+	int token_size = TOKEN_BUFFER_FACTOR;
 
 	for (;;){
 		c = **input;
 
-		if (index == (token_size * TOKEN_BUFFER_FACTOR)){
-			token_size++;
-			token = realloc(token, token_size * TOKEN_BUFFER_FACTOR);
+		if (index == (token_size)){
+			token_size += TOKEN_BUFFER_FACTOR;
+			token = realloc(token, token_size);
 			if (token == 0){
 				printf("Memory allocation error\n");
 				abort();
