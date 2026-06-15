@@ -8,6 +8,7 @@ char * get_next_token(char **input, char delimiter){
 	int index = 0;
 	c = **input;
 	int token_size = TOKEN_BUFFER_FACTOR;
+	int in_quotes = 0;
 
 	for (;;){
 		c = **input;
@@ -21,12 +22,19 @@ char * get_next_token(char **input, char delimiter){
 			}
 		}
 
-		if ((c == delimiter) || (c == 0)) {
+		if (c == '"'){
+			in_quotes = !in_quotes;
+		}
+		else if ((c == delimiter) && (index == 0) && !in_quotes);
+		else if (((c ==delimiter) && !in_quotes) || (c == 0)) {
 			token[index] = '\0';
 			return token;
 		}
-		token[index] = c;
+		else {
+			token[index] = c;
+			index++;
+		}
 		*input += 1;
-		index++;
+		
 	}
 }

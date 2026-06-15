@@ -7,7 +7,7 @@
 extern void process_input(char *input, FILE *outstream, FILE *errstream);
 
 void run_repl(){
-        printf("SpSH shell // Simplified shell\n");
+        printf("SpSH shell // Simplified shell - Version %d.%d.%d\n", VER_MAJOR, VER_MINOR, VER_PATCH);
 	char *input;
         for (;;){
                 printf("[spsh] ");
