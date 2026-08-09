@@ -6,3 +6,4 @@ spsh: $(main_files)
 debug: $(main_files)
 	cc $(main_files) -o bin/spsh_debug -g
 
+#test: $(main_files)
