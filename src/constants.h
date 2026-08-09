@@ -2,10 +2,11 @@
 #define SPSH_CONSTANTS
 
 #define VER_MAJOR 0
-#define VER_MINOR 5
+#define VER_MINOR 6
 #define VER_PATCH 0
 
 #define INPUT_BUFFER_FACTOR 256
 #define TOKEN_BUFFER_FACTOR 64
+#define TOKEN_LIST_FACTOR 16
 
 #endif

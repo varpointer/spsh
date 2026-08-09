@@ -3,20 +3,26 @@
 #include"../constants.h"
 #include<limits.h>
 #include<stdlib.h>
-
-extern void process_input(char *input, FILE *outstream, FILE *errstream);
+#include "../shell/token_list.h"
+#include "../shell/input.h"
 
 void run_repl(){
         printf("SpSH shell // Simplified shell - Version %d.%d.%d\n", VER_MAJOR, VER_MINOR, VER_PATCH);
 	char *input;
+	TokenList tokens = new_token_list();
         for (;;){
-                printf("[spsh] ");
+		if (!tokens.is_incomplete){
+			empty_token_list(tokens);
+			tokens = new_token_list();
+			printf("[spsh] ");
+		} else
+			printf("> ");
 		input = read_line();
 		if ((long)input == -1){
 			printf("Input too long; longer than %d", UINT_MAX);
 			continue;
 		}
-		process_input(input, stdout, stderr);
+		process_input(input, stdout, stderr, &tokens);
 		free(input);
         }
 }
@@ -37,7 +43,6 @@ char* read_line(){
 		char c = fgetc(stdin);
 		if (c == '\n') {
 			input[input_index] = '\0';
-			printf("%d\n", input_index);
 			return input;
 		}
 		input[input_index] = c;

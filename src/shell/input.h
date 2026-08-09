@@ -3,7 +3,8 @@
 
 #include "../constants.h"
 #include <stdio.h>
+#include "./token_list.h"
 
-void process_input(char *input, FILE *outstream, FILE *errstream);
+void process_input(char *input, FILE *outstream, FILE *errstream, TokenList *tokens);
 
 #endif
